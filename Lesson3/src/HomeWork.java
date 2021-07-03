@@ -29,8 +29,8 @@ public class HomeWork {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int[] array = new int[n];
+        Random random = new Random();
         for (int i = 0; i < n; i++) {
-            Random random = new Random();
             array[i] = random.nextInt();
         }
         System.out.println(Arrays.toString(array));
@@ -47,9 +47,10 @@ public class HomeWork {
         if (number > 0) {
             number += 1;
         } else if (number < 0) {
-            number -= 1;
-        } else number = 10;
-
+            number -= 2;
+        } else {
+            number = 10;
+        }
         return number;
     }
 
@@ -78,12 +79,17 @@ public class HomeWork {
      * @param count - количество программистов
      */
     public static void countDevs(int count) {
-        if (count % 10 == 1) {
-            System.out.println(count + " программист");
-        } else if (count % 10 == 2 || count % 10 == 3 || count % 10 == 4) {
-            System.out.println(count + " программиста");
-        } else
+        int a = count % 100;
+        int b = a % 10;
+        if (a >= 11 && a <= 19) {
             System.out.println(count + " программистов");
+        } else if (b >= 2 && b <= 4) {
+            System.out.println(count + " программиста");
+        } else if (b == 1) {
+            System.out.println(count + " программист");
+        } else {
+            System.out.println(count + " программистов");
+        }
     }
 
 
@@ -94,17 +100,14 @@ public class HomeWork {
      * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
      */
     public static void foobar(int number) {
-        boolean a = (number % 3 == 0);
-        boolean b = (number % 5 == 0);
-        boolean c = (a && b);
-        if (a && !c) {
-            System.out.println("foo");
-        }
-        if (b && !c) {
+        if (number % 3 == 0) {
+            if (number % 5 != 0) {
+                System.out.println("foo");
+            } else {
+                System.out.println("foobar");
+            }
+        } else if (number % 5 == 0) {
             System.out.println("bar");
-        }
-        if (c) {
-            System.out.println("foobar");
         }
     }
 
@@ -114,19 +117,18 @@ public class HomeWork {
     public static void calculateSumOfDiagonalElements() {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int m = n;
         int sum = 0;
-        int[][] mass = new int[n][m];
+        int[][] mass = new int[n][n];
+        Random random = new Random();
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                Random random = new Random();
+            for (int j = 0; j < n; j++) {
                 mass[i][j] = random.nextInt();
                 if (i == j) {
                     sum += mass[i][j];
                 }
             }
         }
-        //       System.out.println(Arrays.deepToString(mass));
+//        System.out.println(Arrays.deepToString(mass));
         System.out.println(sum);
     }
 
@@ -158,14 +160,24 @@ public class HomeWork {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int[][] array = new int[n][m];
+        Random random = new Random();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                Random random = new Random();
                 array[i][j] = random.nextInt(100);
             }
         }
-        System.out.println(Arrays.deepToString(array));
-// часть с символами пока не додумалась как сделать
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (array[i][j] % 3 == 0) {
+                    System.out.print("+ ");
+                } else if (array[i][j] % 7 == 0) {
+                    System.out.print("- ");
+                } else {
+                    System.out.print("* ");
+                }
+            }
+            System.out.print("\n");
+        }
     }
 
     /**
@@ -174,6 +186,21 @@ public class HomeWork {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        // тут пишем логику
+        int count = 0;
+        for (int i = 2; i < 1000; i++) {
+            boolean isPrimeNumber = true;
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    isPrimeNumber = false;
+                    break;
+                }
+            }
+            if (isPrimeNumber) {
+                count++;
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+        System.out.println(count);
     }
 }
