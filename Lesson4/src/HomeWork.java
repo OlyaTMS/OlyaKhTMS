@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class HomeWork {
     public static void main(String[] args) {
-        Ameba();
+        ameba();
         summ();
         printTriangle();
         count(100);
@@ -11,7 +13,7 @@ public class HomeWork {
         mass();
         massiv();
         maxEl(new int[]{4, 5, 0, 23, 77, 0, 8, 9, 101, 2});
-        //equalsElements();
+        equalsElements();
         printMatrix();
     }
 
@@ -20,7 +22,7 @@ public class HomeWork {
 //         1) Одноклеточная амеба каждые 3 часа делится на 2 клетки. Определить,
 //   сколько амеб будет через 3, 6, 9, 12,..., 24 часа
 
-    public static void Ameba() {
+    public static void ameba() {
         int a = 1;
         for (int h = 1; h <= 24; h++) {
             if (h % 3 == 0) {
@@ -35,9 +37,12 @@ public class HomeWork {
 //        умножения, где a и b целые числа, вызовите метод summ  в методе main и распечатайте на консоль.
 
     public static void summ() {
-        int a = 5;
-        int b = 4;
-        int summ = Math.multiplyExact(a, b);
+        int summ = 0;
+        int a = 3;
+        int b = 10;
+        for (int i = 0; i < b; i++) {
+            summ += a;
+        }
         System.out.println(summ);
     }
 
@@ -62,7 +67,7 @@ public class HomeWork {
                 for (int i = 0; i < triangle.length; i++) {
                     for (int j = 0; j < triangle.length; j++) {
                         if ((i + j) >= triangle.length - 1) {
-                            System.out.print(" *");
+                            System.out.print("* ");
                         } else {
                             System.out.print("  ");
                         }
@@ -70,10 +75,10 @@ public class HomeWork {
                     System.out.println("");
                 }
             }
-            if (n == 1) { // не понимаю почему этот треугольник съезжает
+            if (n == 1) {
                 for (int i = 0; i < triangle.length; i++) {
-                    for (int j = 0; j <= triangle.length; j++) {
-                        if (i >= j) {
+                    for (int j = 0; j < triangle.length; j++) {
+                        if (i > j) {
                             System.out.print("  ");
                         } else {
                             System.out.print("* ");
@@ -116,12 +121,13 @@ public class HomeWork {
     public static void count(int number) {
         System.out.println("Введите число: " + number);
         int n = String.valueOf(Math.abs(number)).length();
-        if (number > 0) {
+        if (number == 0) {
+            System.out.println("Вы ввели ноль, количество цифр = " + n);
+        } else if (number > 0) {
             System.out.println(number + " - это положительное число, количество цифр = " + n);
         } else {
             System.out.println(number + " - это отрицательное число, количество цифр = " + n);
         }
-
     }
 
 //        5) Создайте массив из всех нечётных чисел от 1 до 100, выведите его на экран в строку,
@@ -148,14 +154,13 @@ public class HomeWork {
         int ind = 0;
         for (int i = 0; i < mass.length; i++) {
             mass[i] = (int) (Math.random() * 15);
-            if (mass[i] > max) {
+            if (mass[i] >= max) {
                 max = mass[i];
-                ind = i + 1;
+                ind = i;
             }
         }
         System.out.println(Arrays.toString(mass));
         System.out.println("Максимальный элемент " + max + ", индекс его последнего вхождения в массив = " + ind);
-
     }
 
     //        7) Создайте массив размера 20, заполните его случайными целыми чиселами из отрезка от 0 до 20.
@@ -163,8 +168,6 @@ public class HomeWork {
 //        Снова выведете массив на экран на отдельной строке.
     public static void massiv() {
         int[] massiv = new int[20];
-        int max = 0;
-        int ind = 0;
         for (int i = 0; i < massiv.length; i++) {
             massiv[i] = (int) (Math.random() * 20);
         }
@@ -189,20 +192,38 @@ public class HomeWork {
                 index = i;
             }
         }
-//            System.out.println(index);
         ints[index] = ints[0];
         ints[0] = max;
         System.out.println(Arrays.toString(ints));
     }
 
-//        9) Проверить, различны ли все элементы массива, если не различны то вывести элемент повторяющийся
+    //        9) Проверить, различны ли все элементы массива, если не различны то вывести элемент повторяющийся
 //        Пример: {0,3,46,3,2,1,2}
 //        Массив имеет повторяющиеся элементы 3, 2
 //        Пример: {0,34,46,31,20,1,28}
 //        Массив не имеет повторяющихся элементов
-    /*   public static void equalsElements() {
-     */
-
+    public static void equalsElements() {
+        int[] mass = {1, 13, 6, 1, 2, 13, 46};
+        Arrays.sort(mass);
+        System.out.println(Arrays.toString(mass));
+        int length = mass.length;
+        boolean flag = true;
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0, j = i + 1; i < length && j < length; i++, j++) {
+            if (mass[i] == mass[j] && flag) {
+                result.add(mass[i]);
+                flag = false;
+            } else {
+                flag = true;
+            }
+        }
+        if (!result.isEmpty()) {
+            System.out.print("Массив имеет повторяющиеся элементы ");
+            System.out.println(result);
+        } else {
+            System.out.println("Массив не имеет повторяющихся элементов");
+        }
+    }
 
     //        10) Создаём квадратную матрицу, размер вводим с клавиатуры.
 //        Заполняем случайными числами в диапазоне от 0 до 50. И выводим на консоль(в виде матрицы).
