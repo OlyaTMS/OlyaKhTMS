@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 
-public class Transport implements Convertable {
+public abstract class Transport implements Convertable {
     private double power;
     private double maxSpeed;
     private double weight;

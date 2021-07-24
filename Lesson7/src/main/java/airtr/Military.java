@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import tr.Transport;
 import tr1.AirTransport;
 
 @Getter
@@ -24,9 +23,8 @@ public class Military extends AirTransport {
         }
     }
 
-    public void catapult(Transport transport) {
-        Military military = (Military) transport;
-        if (military.isEjectionSystem()) {
+    public void catapult() {
+        if (!isEjectionSystem()) {
             System.out.println("Катапультирование прошло успешно");
         } else {
             System.out.println("У вас нет такой системы");

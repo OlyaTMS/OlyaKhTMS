@@ -14,7 +14,7 @@ import tr1.LandTransport;
 public class Trucks extends LandTransport {
     private double liftingCapacity;
 
-    public void checkLiftingCapacity(double liftingCapacity) {
+    public void checkLiftingCapacity() {
         double weightOfCargo = Math.random() * 4500;
         if (weightOfCargo <= liftingCapacity) {
             System.out.println("Грузовик загружен");

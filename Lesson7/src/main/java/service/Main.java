@@ -4,11 +4,10 @@ import airtr.Civil;
 import airtr.Military;
 import landtr.Cars;
 import landtr.Trucks;
-import tr.Transport;
 
 public class Main {
     public static void main(String[] args) {
-        Transport cars = Cars.builder()
+        Cars cars = Cars.builder()
                 .power(100)
                 .maxSpeed(120)
                 .weight(180)
@@ -19,7 +18,7 @@ public class Main {
                 .numberOfPassengers(5)
                 .build();
 
-        Transport trucks = Trucks.builder()
+        Trucks trucks = Trucks.builder()
                 .power(180)
                 .maxSpeed(120)
                 .weight(2800)
@@ -29,7 +28,7 @@ public class Main {
                 .liftingCapacity(3800)
                 .build();
 
-        Transport civil = Civil.builder()
+        Civil civil = Civil.builder()
                 .power(350)
                 .maxSpeed(800)
                 .weight(4000)
@@ -39,7 +38,7 @@ public class Main {
                 .numberOfPassengers(800)
                 .build();
 
-        Transport military = Military.builder()
+        Military military = Military.builder()
                 .power(400)
                 .maxSpeed(1000)
                 .weight(3000)
@@ -51,12 +50,14 @@ public class Main {
 
 
         System.out.println(cars);
+        cars.carsInfo(cars, 2.2);
         System.out.println(trucks);
+        trucks.checkLiftingCapacity();
         System.out.println(civil);
-        int countPeople = (int) (Math.random() * 650);
-        ((Civil)civil).checkNumberOfPassengers(countPeople);
-
+        civil.checkNumberOfPassengers();
+        civil.checkBusinessClassAvailability();
         System.out.println(military);
-
+        military.shot();
+        military.catapult();
     }
 }

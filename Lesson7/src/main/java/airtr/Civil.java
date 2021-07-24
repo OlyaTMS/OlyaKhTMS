@@ -13,9 +13,13 @@ import tr1.AirTransport;
 
 public class Civil extends AirTransport {
     private int numberOfPassengers;
-    private boolean businessClassAvailability;
+    private boolean businessClassAvailability = true;
+    private final int countForBusinessClass = 300;
 
-    public void checkNumberOfPassengers(int countPeople) {
+    int countPeople = (int) (Math.random() * 650);
+
+    public void checkNumberOfPassengers() {
+
         if (countPeople <= numberOfPassengers) {
             System.out.println("Самолет заполнен");
         } else {
@@ -24,7 +28,7 @@ public class Civil extends AirTransport {
     }
 
     public void checkBusinessClassAvailability() {
-        if (isBusinessClassAvailability()) {
+        if (countPeople > countForBusinessClass) {
             System.out.println("В самолете есть бизнесс класс");
         } else {
             System.out.println("В самолете нет бизнесс класса");
