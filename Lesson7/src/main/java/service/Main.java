@@ -53,6 +53,9 @@ public class Main {
         System.out.println(cars);
         System.out.println(trucks);
         System.out.println(civil);
+        int countPeople = (int) (Math.random() * 650);
+        ((Civil)civil).checkNumberOfPassengers(countPeople);
+
         System.out.println(military);
 
     }

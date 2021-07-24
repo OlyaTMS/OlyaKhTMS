@@ -11,13 +11,11 @@ import tr1.LandTransport;
 @Setter
 @ToString(callSuper = true)
 @SuperBuilder
-
-
 public class Trucks extends LandTransport {
     private double liftingCapacity;
-    double weightOfCargo = Math.random() * 4500;
 
-    public void checkLiftingCapacity(double liftingCapacity, double weightOfCargo) {
+    public void checkLiftingCapacity(double liftingCapacity) {
+        double weightOfCargo = Math.random() * 4500;
         if (weightOfCargo <= liftingCapacity) {
             System.out.println("Грузовик загружен");
         } else {
