@@ -30,5 +30,4 @@ public class Military extends AirTransport {
             System.out.println("У вас нет такой системы");
         }
     }
-
 }

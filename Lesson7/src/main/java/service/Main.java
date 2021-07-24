@@ -50,7 +50,7 @@ public class Main {
 
 
         System.out.println(cars);
-        cars.carsInfo(cars, 2.2);
+        cars.carsInfo(cars, 2.3);
         System.out.println(trucks);
         trucks.checkLiftingCapacity();
         System.out.println(civil);
