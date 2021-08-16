@@ -1,6 +1,7 @@
 package in;
 
 public interface ICar {
+
     void carInfo();
 
     boolean isMoving();

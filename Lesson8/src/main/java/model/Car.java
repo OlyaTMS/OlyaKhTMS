@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class Car {
+
     private final Engine engine;
     private FuelTank fuelTank;
     private boolean isMoving;

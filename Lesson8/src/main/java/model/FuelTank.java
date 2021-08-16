@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class FuelTank {
+
     private int fuelCapacity;
     private int fuelLevel;
 

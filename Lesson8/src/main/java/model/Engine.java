@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class Engine {
+
     private String type;
     private int volume;
     private boolean isRunning;
