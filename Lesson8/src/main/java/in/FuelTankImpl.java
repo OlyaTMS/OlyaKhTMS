@@ -7,6 +7,7 @@ import model.FuelTank;
 @Getter
 @Setter
 public class FuelTankImpl implements IFuel {
+
     private FuelTank fuelTank;
 
     public FuelTankImpl(FuelTank fuelTank) {
