@@ -45,7 +45,7 @@ public class Car implements IStart {
         if (number % 2 != 0) {
             System.out.println("Машина " + model + " завелась. Поехали!");
         } else {
-            throw new MyException("Машина " + model + " не завелась. Попробуем еще раз!");
+            throw new CarNotStartedException("Машина " + model + " не завелась. Попробуем еще раз!");
         }
     }
 }
