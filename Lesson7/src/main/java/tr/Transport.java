@@ -1,6 +1,6 @@
 package tr;
 
-import in.Convertable;
+import in.Convertible;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 
-public abstract class Transport implements Convertable {
+public abstract class Transport implements Convertible {
     private double power;
     private double maxSpeed;
     private double weight;

@@ -1,6 +1,6 @@
 package landtr;
 
-import in.Convertable;
+import in.Convertible;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,7 +12,7 @@ import tr1.LandTransport;
 @ToString(callSuper = true)
 @SuperBuilder
 
-public class Cars extends LandTransport implements Convertable {
+public class Cars extends LandTransport implements Convertible {
     private String typeOfCarcase;
     private int numberOfPassengers;
 
