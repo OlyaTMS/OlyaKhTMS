@@ -10,9 +10,8 @@ public class Main {
             car2.start();
             car3.start();
             car4.start();
-        } catch (Exception MyException) {
-            System.out.println(MyException.getMessage());
-            MyException.printStackTrace();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
     }
 }
