@@ -6,7 +6,7 @@ import model.FuelTank;
 public class Main {
     public static void main(String[] args) {
 
-        CarImpl car = new CarImpl(crCar());
+        CarImpl car = new CarImpl(createCar());
         car.carInfo();
         car.startEngine();
         car.startMoving();
@@ -24,12 +24,12 @@ public class Main {
 
     }
 
-        private static Car crCar() {
-            Car car = new Car(new Engine("petrol", 2400), new FuelTank(50));
-            car.setModel("Honda");
-            car.setYearOfIssue(2004);
-            car.setMaxSpeed(200);
-            return car;
-        }
+    private static Car createCar() {
+        Car car = new Car(new Engine("petrol", 2400), new FuelTank(50));
+        car.setModel("Honda");
+        car.setYearOfIssue(2004);
+        car.setMaxSpeed(200);
+        return car;
+    }
 }
 
