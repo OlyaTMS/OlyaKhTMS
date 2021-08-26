@@ -42,7 +42,7 @@ public class Main {
 
         String str2 = "Шура и Миша бегут на речку. С ними их пес Казак. Друзья бросились в воду и \n" +
                 "поплыли. Казак тоже любит купаться. Не раздумывая, он прыгнул следом. Пришел дед и позвал всех домой.";
-        String strings[] = str2.split("\\.\\s*");
+        String[] strings = str2.split("\\.\\s*");
         for (int i = 0; i < strings.length; i++) {
             if (TextFormatter.isPalindrome(strings[i])) {
                 System.out.println(strings[i]);

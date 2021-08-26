@@ -4,9 +4,9 @@ public class TextFormatter {
 
     public static int countOfWords(String str2) {
         int count = 0;
-        String strings[] = str2.split("\\.\\s*");
-        for (int i = 0; i < strings.length; i++) {
-            count = strings[i].split(" ").length;
+        String[] strings = str2.split("\\.\\s*");
+        for (String string : strings) {
+            count = string.split(" ").length;
         }
         return count;
     }
