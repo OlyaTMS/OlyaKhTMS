@@ -4,9 +4,9 @@ public class TextFormatter {
 
     public static int countOfWords(String str2) {
         int count = 0;
-        String strings[] = str2.split("\\. ");
-        for (int i = 0; i < strings.length; i++) {
-            count = strings[i].split(" ").length;
+        String[] strings = str2.split("\\.\\s*");
+        for (String string : strings) {
+            count = string.split(" ").length;
         }
         return count;
     }
@@ -18,9 +18,7 @@ public class TextFormatter {
             String token = stringTokenizer.nextToken();
             StringBuilder stringBuilder = new StringBuilder(token);
             String token1 = stringBuilder.reverse().toString();
-            if (token.equalsIgnoreCase(token1) && token.length() > 1) {
-                System.out.println(strings);
-                System.out.println(token + " - палиндром");
+            if (token.length() > 1 && token.equalsIgnoreCase(token1)) {
                 isPal = true;
             }
         }
